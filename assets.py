@@ -56,3 +56,4 @@ def loading():
         assets['zombie_attack'].append(z)
 
     return assets
+
