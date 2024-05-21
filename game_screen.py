@@ -29,6 +29,12 @@ def game_screen(screen):
     tempo_novo_zombie = 0 
     frequencia_zombie = 1500
 
+    # Variáveis de controle de upgrade
+    current_weapon_index = 0  # Índice da arma atual
+    weapons = ['shotgun', 'ak']  # Lista de armas disponíveis
+    weapon_costs = [COST_SHOTGUN, COST_AK]  # Custo de cada arma
+
+
     # pygame.mixer.music.play(loops=-1)
     while state == GAME:
         clock.tick(FPS)
@@ -50,12 +56,30 @@ def game_screen(screen):
             elif event.type == BARREIRA_ZERO_HEALTH:
                 state = END
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_1:
-                    player.change_weapon('pistola')
-                elif event.key == pygame.K_2:
-                    player.change_weapon('ak')
-                elif event.key == pygame.K_3:
-                    player.change_weapon('shotgun')
+                if event.key == pygame.K_u:
+                    # Upgrade de arma
+                    if current_weapon_index == 2:
+                            current_weapon_index = 1
+                            a = 1
+                    if moedas >= weapon_costs[current_weapon_index]:
+                        if a == 0:
+                            moedas -= weapon_costs[current_weapon_index]
+                        player.change_weapon(weapons[current_weapon_index])
+                        current_weapon_index += 1
+                elif event.key == pygame.K_i:
+                    # Uso de moedas para recuperar parte da vida da base
+                    if moedas >= COST_BARRIER:  # Custo para recuperar vida da base
+                        moedas -= COST_BARRIER
+                        barreira.health += 100  # Recupera 100 de vida da base
+                        if barreira.health > barreira.max_health:
+                            barreira.health = barreira.max_health
+            # elif event.type == pygame.KEYDOWN:
+            #     if event.key == pygame.K_1:
+            #         player.change_weapon('pistola')
+            #     elif event.key == pygame.K_2:
+            #         player.change_weapon('ak')
+            #     elif event.key == pygame.K_3:
+            #         player.change_weapon('shotgun')
         
         if tempo_novo_zombie > frequencia_zombie:
             novo_zombie = Zombie(barreira, assets)
