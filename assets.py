@@ -12,10 +12,7 @@ def loading():
     assets['barreira'] = pygame.image.load(os.path.join(IMG_DIR, 'barreira.png'))
     assets['chaobase'] = pygame.image.load(os.path.join(IMG_DIR, 'chaobase.png'))
 
-    assets['ak'] = pygame.image.load(os.path.join(IMG_DIR, 'ak.png'))
-    assets['pistola'] = pygame.image.load(os.path.join(IMG_DIR, 'pistola.png'))
-    assets['pistola'] = pygame.transform.scale(assets['pistola'],(250/2,160/2))
-    assets['shotgun'] = pygame.image.load(os.path.join(IMG_DIR, 'shotgun.png'))
+    assets['info'] = pygame.image.load(os.path.join(IMG_DIR, 'info.png'))
 
     
     assets['player_pistola'] = pygame.image.load(os.path.join(IMG_DIR, 'player_pistola.png'))
@@ -57,3 +54,25 @@ def loading():
 
     return assets
 
+
+def create_icons(assets):
+    icons = {}
+
+    # Ícone de moeda
+    coin_icon = assets['coin']
+    coin_icon = pygame.transform.scale(coin_icon, (HUD_ICON_SIZE, HUD_ICON_SIZE))
+    icons['coin'] = coin_icon
+
+    skull_icon = assets['skull']
+    skull_icon = pygame.transform.scale(skull_icon, (HUD_ICON_SIZE, HUD_ICON_SIZE))
+    icons['skull'] = skull_icon
+
+    # info
+    icons['info'] = assets['info']
+
+    # Ícone para kills
+    icons['kills'] = pygame.Surface((HUD_ICON_SIZE, HUD_ICON_SIZE), pygame.SRCALPHA)
+    pygame.draw.circle(icons['kills'], WHITE, (HUD_ICON_SIZE // 2, HUD_ICON_SIZE // 2), HUD_ICON_SIZE // 2)
+    pygame.draw.circle(icons['kills'], T_BLACK, (HUD_ICON_SIZE // 2, HUD_ICON_SIZE // 2), HUD_ICON_SIZE // 2 - 2)
+
+    return icons
