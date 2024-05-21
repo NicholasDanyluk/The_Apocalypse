@@ -23,4 +23,3 @@ while state != QUIT:
         state = QUIT
 
 pygame.quit()
-

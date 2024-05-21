@@ -166,3 +166,49 @@ class Jogador(pygame.sprite.Sprite):
                 self.shoot_delay = 200
             elif new_weapon == 'shotgun':
                 self.shoot_delay = 120
+
+class Zombie(pygame.sprite.Sprite):
+    def __init__(self, barreira, assets):
+        pygame.sprite.Sprite.__init__(self)
+        self.assets = assets
+        self.i = 0
+        self.image = self.assets["zombie_walk"][self.i]  # Use a primeira imagem como padrão
+        self.rect = self.image.get_rect()
+        self.rect.x = -64  # Spawn do lado esquerdo do mapa
+        self.rect.y = random.randint(0, 576-64)  # Posição vertical aleatória
+        self.speed = 4  # Velocidade de movimento do zombie
+        self.barreira = barreira  # Barreira que o zombie irá atacar
+        self.state = "walking"  # Estado inicial do zombie
+
+    def update(self):
+        if self.state == "walking":
+            # Movimento em direção à barreira
+            if self.rect.x < self.barreira.rect.x:
+                self.rect.x += self.speed
+
+            # Atualizar a animação de caminhada
+            self.animate("zombie_walk", 17)
+
+            # Verificar se o zombie atingiu a barreira
+            if pygame.sprite.collide_rect(self, self.barreira):
+                self.state = "attacking"  # Mudar para o estado de ataque
+
+        elif self.state == "attacking":
+            # Atualizar a animação de ataque
+            self.animate("zombie_attack", 9)
+
+            # Reduzir a vida da barreira enquanto o zombie ataca
+            self.barreira.health -= 1
+
+            # Verificar se a vida da barreira chegou a zero
+            if self.barreira.health <= 0:
+                self.barreira.health = 0  # Garantir que a vida da barreira não seja negativa
+                self.state = "walking"  # Mudar de volta para o estado de caminhada
+
+    def animate(self, anim_name, num_frames):
+        # Alternar entre as imagens da animação
+        self.i = (self.i + 0.2) % num_frames
+        self.image = self.assets[anim_name][int(self.i)]
+
+    def die(self):
+        self.kill()
