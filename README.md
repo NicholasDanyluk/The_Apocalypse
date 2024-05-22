@@ -1,5 +1,6 @@
 # The_Apocalypse
 Um projeto em python utilizando o pygame, de um sobrevivente, que precisa proteger sua base dos zombies
+video demonstração: https://youtu.be/5iKtx3E6_BY
 
 FONTES:
 persongens
