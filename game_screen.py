@@ -37,7 +37,7 @@ def game_screen(screen):
     # Criar ícones do HUD
     icons = create_icons(assets)
 
-    # pygame.mixer.music.play(loops=-1)
+    pygame.mixer.music.play(loops=-1)
     while state == GAME:
         clock.tick(FPS)
         tempo_passado += clock.get_time()

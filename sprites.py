@@ -64,7 +64,8 @@ class Barreira(pygame.sprite.Sprite):
 
 
 class Balas(pygame.sprite.Sprite):
-    def __init__(self, angle):
+    def __init__(self, angle, assets):
+        self.assets = assets
         pos = (982,275)
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((10, 10), pygame.SRCALPHA)
@@ -73,7 +74,7 @@ class Balas(pygame.sprite.Sprite):
         self.speed = 10
         self.angle = math.radians(angle)
         self.velocity = pygame.math.Vector2(self.speed * math.cos(self.angle), -self.speed * math.sin(self.angle))
-    
+        self.assets['tirosnd'].play()
 
     def update(self):
         self.rect.x += self.velocity.x
@@ -148,7 +149,7 @@ class Jogador(pygame.sprite.Sprite):
             self.rect = self.image.get_rect(center=self.rect.center)
 
     def shoot_bullet(self, angle):
-        bullet = Balas(angle)
+        bullet = Balas(angle, self.assets)
         self.balas.add(bullet)
 
     def change_weapon(self, new_weapon):

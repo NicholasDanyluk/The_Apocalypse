@@ -16,3 +16,7 @@ https://www.flaticon.com/br/icone-gratis/caveira-e-ossos_456348
 https://pt.pngtree.com/freepng/flat-vector-illustration-of-gold-dollar-coin-icon_14710371.html
 https://opengameart.org/content/a-set-of-guns-ak-47-shotgun-and-1911-pistol
 https://br.pinterest.com/pin/687291593150274521/
+
+sons
+https://opengameart.org/content/triple-kill-multiple-tracks
+https://opengameart.org/content/light-machine-gun

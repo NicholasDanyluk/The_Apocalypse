@@ -52,6 +52,11 @@ def loading():
         z = pygame.transform.scale(z,(64,64))
         assets['zombie_attack'].append(z)
 
+    pygame.mixer.music.load(os.path.join(SND_DIR, 'rock.mp3'))
+    pygame.mixer.music.set_volume(0.4)
+    assets['tirosnd'] = pygame.mixer.Sound(os.path.join(SND_DIR, 'tiro.mp3'))
+
+
     return assets
 
 
