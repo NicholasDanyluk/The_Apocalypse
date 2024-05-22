@@ -1,6 +1,10 @@
 # The_Apocalypse
 Um projeto em python utilizando o pygame, de um sobrevivente, que precisa proteger sua base dos zombies
 
+Teclas: Botão esquerdo do mouse: Atirar,  U: Upgrade da arma,  I: Recupera a vida da barreira
+
+Participação de Nicholas Danyluk, João Chebatt Molla e João Pedro Hugues
+
 video demonstração: https://youtu.be/5iKtx3E6_BY
 
 FONTES:
