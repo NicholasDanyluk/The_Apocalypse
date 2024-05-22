@@ -27,7 +27,7 @@ def game_screen(screen):
     moedas = 0
     tempo_passado = 0
     tempo_novo_zombie = 0 
-    frequencia_zombie = 1500
+    frequencia_zombie = 2000
 
     # Variáveis de controle de upgrade
     current_weapon_index = 0  # Índice da arma atual
@@ -72,7 +72,7 @@ def game_screen(screen):
                     # Uso de moedas para recuperar parte da vida da base
                     if moedas >= COST_BARRIER:  # Custo para recuperar vida da base
                         moedas -= COST_BARRIER
-                        barreira.health += 100  # Recupera 100 de vida da base
+                        barreira.health += 200  # Recupera 100 de vida da base
                         if barreira.health > barreira.max_health:
                             barreira.health = barreira.max_health
             # elif event.type == pygame.KEYDOWN:
