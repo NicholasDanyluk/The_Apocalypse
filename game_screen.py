@@ -49,7 +49,7 @@ def game_screen(screen):
             for z in zombie:
                 z.die()
                 contador_zombies += 1
-                moedas += 1
+                moedas += 2
 
         for event in pygame.event.get():
             # ----- Verifica consequências
@@ -90,7 +90,7 @@ def game_screen(screen):
             tempo_novo_zombie = 0  # Reinicia o contador de tempo para o próximo zombie
 
             frequencia_zombie -= 20  # Reduzir o tempo entre zombies
-            if frequencia_zombie < -1000:
+            if frequencia_zombie < -800:
                 frequencia_zombie = 700
 
         all_sprites.update()
