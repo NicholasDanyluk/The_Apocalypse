@@ -5,7 +5,7 @@ Teclas: Botão esquerdo do mouse: Atirar,  U: Upgrade da arma,  I: Recupera a vi
 
 Participação de Nicholas Danyluk, João Chebatt Molla e João Pedro Hugues
 
-video demonstração: https://youtu.be/5iKtx3E6_BY
+video demonstração: https://youtu.be/8APvmOanaog
 
 FONTES:
 
